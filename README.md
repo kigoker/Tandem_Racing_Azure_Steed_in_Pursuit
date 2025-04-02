@@ -1,2 +1,0 @@
-# Tandem_Racing_Azure_Steed_in_Pursuit
-20届双车跟随-湖北科技学院青骢逐影
