@@ -13,7 +13,7 @@
 //#define SPEED_MAX   3000  //电机速度限幅，正
 //#define SPEED_MIN  -3000  //电机速度限幅，负
 
-int my_abs(int value);
+
 typedef struct
 {
         float P;
@@ -49,6 +49,7 @@ extern int Increase2;
 extern int speed1;
 extern int speed2;
 extern int setspeed1;
+extern int basespeed;
 extern int setspeed2;
 extern float divertion;
 extern float qulv;

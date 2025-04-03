@@ -9,17 +9,25 @@
 #define CODE_IMU_H_
 #include "zf_common_headfile.h"
 
-#define delta_T 0.00003f //1ms
-extern float pitch, roll, yaw,ang_z;                // Z 轴角速度积分角度        // 欧拉角 (单位: 度)
 
-void imu660_Read(void);
-void gyroOffsetInit(void);
-float myRsqrt(float num);
-void ImuGetValues(void);
-void ImuAHRSupdate(void);
-void ReadGyro(void);
-void ClearGyro(void);
-void GyroResolve(void);
+/* 灵敏度 */
+#define   GYRO_SENS             1/16.4
+#define   ACCE_SENS             90.0/4096
+#define   DT                    0.01
+
+/**********申明变量*************/
+extern volatile float FJ_Pitch;//偏航角
+extern volatile float FJ_Angle;//俯仰角
+
+void Gyroscope_Init(void);
+void Gyroscope_GetData(void);
+void Zero_Point_Detect(void);
+void Get_Gyroscope_Angle(void);
+void Clear_Gyroscope_Angle(void);
+void Get_Gyroscope_Pitch(void);
+void Clear_Gyroscope_Pitch(void);
+
+
 
 
 

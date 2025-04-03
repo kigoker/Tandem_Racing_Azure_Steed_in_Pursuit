@@ -6,8 +6,9 @@
  */
 #include "PID.h"
 
-int setspeed1=1200;
-int setspeed2=1200;
+int basespeed=1000;
+int setspeed1=1000;
+int setspeed2=1000;
 int speed1;//左电机
 int speed2;
 int Increase1=0;
@@ -25,19 +26,6 @@ PID_Angeltypedef angel;
 //float P_R=0.1;
 //float I_R=0;
 
-int my_abs(int value)
-{
-if(value>=0) return value;
-else return -value;
-}
-
-int16 limit_a_b(int16 x, int a, int b)
-{
-    if(x<a) x = a;
-    if(x>b) x = b;
-    return x;
-}
-
 void PID_Init(PID_Datatypedef*sptr)
 {
     sptr->P=0;
@@ -50,9 +38,10 @@ void imu_PID_Init(PID_imu_Datatypedef*imu)
 {
     imu->KP_1=0;
     imu->KD_1=0;
+    imu->KP_2=0;
     imu->GKD=0;
     imu->lasterror=0;
-    imu->KP_2 = 0;
+
     imu->integrator = 0;   // 积分项初始化为0
 }
 int MotorPID_Output(PID_Datatypedef*sptr,float NowSpeed,int ExpectSpeed)
@@ -68,11 +57,12 @@ int MotorPID_Output(PID_Datatypedef*sptr,float NowSpeed,int ExpectSpeed)
 float imuPID_Output(float erspeed,PID_imu_Datatypedef*imu)
 {
     float imu_out;
-
-    imu_out = (erspeed * imu->KP_1) + (erspeed * my_abs(erspeed) * imu->KP_2) + (erspeed - imu->lasterror) * imu->KD_1 + imu660ra_gyro_x * imu->GKD;
+//    imu_out=erspeed*imu->KP_1+(erspeed-imu->lasterror)*imu->KD_1-imu660ra_gyro_x*imu->GKD;
+//    imu->lasterror=erspeed;
+    imu_out = (erspeed * imu->KP_1) + (erspeed * fabsf(erspeed) * imu->KP_2) + (erspeed - imu->lasterror) * imu->KD_1 + imu660ra_gyro_x * imu->GKD;
     imu->lasterror = erspeed; // 更新上一次误差
-    if (imu_out > 5000) imu_out =5000;
-    else if (imu_out < -5000) imu_out = -5000;
+    if (imu_out > 2500) imu_out =2500;
+    else if (imu_out < -2500) imu_out = -2500;
     return imu_out;
 
 }
@@ -99,71 +89,25 @@ void PID_output(void)
     Increase1=MotorPID_Output(&sptr1,speed1,setspeed1);
     Increase2=MotorPID_Output(&sptr2,speed2,setspeed2);
             //方向环直接扭转小车运行方向
-    divertion=imuPID_Output(center_line_error,&imu);
+//    Increase1=Increase1-divertion;
+//    Increase2=Increase2+divertion;
 //    Increase1=-divertion;
 //    Increase2=+divertion;
+    divertion=imuPID_Output(erspeed,&imu);
     Increase1=Increase1-divertion;
     Increase2=Increase2+divertion;
+    // 限制输出，防止反转或过大
+//    if (Increase1 < 0) Increase1 = 0.02*Increase2;
+//    if (Increase2 < 0) Increase2 = 0.02*Increase1;
+//    if (Increase1 > 2500) Increase1 = 3000;
+//    if (Increase2 > 2500) Increase2 = 3000;
     Motor_Left(Increase1);
     Motor_Right(Increase2);
 //    Motor_Left(1000);
 //    Motor_Right(1000);
-//    if(Increase1-Increase2>-6000 && Increase1-Increase2<6000)
-//    {
-//    float diff = Increase1 - Increase2;
-//    if (diff > 3500 || diff < -3500) {         // 最大转向
-//        if (Increase1 < 0) Increase1 = -1.8 * Increase1;
-//        if (Increase2 < 0) Increase2 = -1.8 * Increase2;
-//    }
-//    else if (diff > 2500 || diff < -2500) {    // 大转向
-//        if (Increase1 < 0) Increase1 = -1.5 * Increase1;
-//        if (Increase2 < 0) Increase2 = -1.5 * Increase2;
-//    }
-//    else if (diff > 1500 || diff < -1500) {    // 中等转向
-//        if (Increase1 < 0) Increase1 = -1.0 * Increase1;
-//        if (Increase2 < 0) Increase2 = -1.0 * Increase2;
-//    }
-//    else if (diff > 1000 || diff < -1000) {    // 小转向
-//        if (Increase1 < 0) Increase1 = -0.5 * Increase1;
-//        if (Increase2 < 0) Increase2 = -0.5 * Increase2;
-//    }
-//    else {
-//        Increase1 = 0.8 * last_Increase1 + 0.2 * Increase1;
-//        Increase2 = 0.8 * last_Increase2 + 0.2 * Increase2;
-//    }
 
 }
 
-//void PID_select(void)
-//{
-//    if(flag)
-//    {
-//    setspeed1=1000;
-//    setspeed2=1000;
-//    sptr1.P=1.0;//pwm1000时的参数
-//    sptr1.I=1.13;
-//    sptr1.D=0;
-//
-//    sptr2.P=1.0;
-//    sptr2.I=1.3;
-//    sptr2.D=0;
-//        //转向环PID
-//    imu.KP_1=80;
-//    imu.KD_1=10;
-//    imu.GKD=0.2;}
-//
-//    if(flag1)
-//{   setspeed1=1000;
-//    setspeed2=1000;
-//    sptr1.P=2.5;
-//    sptr1.I=1.13;
-//    sptr1.D=0;
-//
-//    sptr2.P=1.5;
-//    sptr2.I=1.28;
-//    sptr2.D=0;
-//    }
-//}
 /*-------------------------------------------------------------------------------------------------------------------
   @brief     PID控制
   @param     int set_speed ,int speed,期望值，实际值
