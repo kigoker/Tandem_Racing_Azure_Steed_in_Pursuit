@@ -97,6 +97,10 @@ extern ImageDealDatatypedef ImageDeal[60];
 extern ImageStatustypedef ImageStatus;
 extern ImageFlagtypedef ImageFlag;
 
+extern uint8 LeftBorder_copy[60];
+extern uint8 RightBorder_copy[60];
+extern uint8 center_copy[60];
+
 extern float center_line_error;
 
 void image_process(void);

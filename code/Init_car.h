@@ -22,13 +22,15 @@ extern int *Set_Right;
 
 //WIFI_SPI 参数设置
 #define WIFI_SPI_OPEN 1  //0关闭WIFI_SPI 1开启
-#define INCLUDE_BOUNDARY_TYPE 0 //摄像头图像传输模式 0为不发送边界  1为发送边界
+#define INCLUDE_BOUNDARY_TYPE 1 //摄像头图像传输模式 0为不发送边界  1为发送边界
 
 extern uint8 image_copy[MT9V03X_H][MT9V03X_W];
 
 #define WIFI_SSID_TEST          "411"    //连接WIFI名称
-
 #define WIFI_PASSWORD_TEST      "cszwz411"  // 如果需要连接的WIFI 没有密码则需要将 这里 替换为 NULL
+#define WIFI_SPI_TARGET_IP          "192.168.31.154"              // 连接目标的 IP
+#define WIFI_SPI_TARGET_PORT        "8080"                      // 连接目标的端口
+#define WIFI_SPI_LOCAL_PORT         "6666"                      // 本机的端口 0：随机  可设置范围2048-65535  默认 6666
 
 extern uint8 data_buffer[32];
 extern uint8 data_len;

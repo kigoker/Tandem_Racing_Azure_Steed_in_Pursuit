@@ -27,7 +27,7 @@ int core0_main(void)
             mt9v03x_finish_flag = 0;
             image_process();
             // 在发送前将图像备份再进行发送，这样可以避免图像出现撕裂的问题
-            memcpy(image_copy[0], Pixle[0], MT9V03X_IMAGE_SIZE);
+            memcpy(image_copy[0], Pixle[0], USE_IMAGE_SIZE);
             // 发送图像
             if(WIFI_SPI_OPEN)
             {

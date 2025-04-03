@@ -128,14 +128,15 @@ void WIFI_SPI_Init(void)
    // 逐飞助手初始化 数据传输使用高速WIFI SPI
    seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIFI_SPI);
     // 发送总钻风图像信息(仅包含原始图像信息)
-    seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_copy[0], MT9V03X_W, MT9V03X_H);
+    seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_copy[0], LCDW, LCDH);
 #elif(1 == INCLUDE_BOUNDARY_TYPE)
     // 发送总钻风图像信息(并且包含三条边界信息，边界信息含有横纵轴坐标)
-    // 这样的方式可以实现对于有回弯的边界显示
-    ImageDealDatatypedef ImageDeal[60];             //记录单行信息的结构体数组
+//    // 这样的方式可以实现对于有回弯的边界显示
+//    ImageDealDatatypedef ImageDeal[60];             //记录单行信息的结构体数组
+
     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIFI_SPI);
-    seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_copy[0], MT9V03X_W, MT9V03X_H);
-    seekfree_assistant_camera_boundary_config(X_BOUNDARY, MT9V03X_H, LeftBorder, RightBorder, Center, NULL, NULL, NULL);     // 图像发送时包含三条边线，边线只有横坐标
+    seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_copy[0], LCDW, LCDH);
+    seekfree_assistant_camera_boundary_config(X_BOUNDARY, LCDH,LeftBorder_copy, RightBorder_copy, center_copy, NULL, NULL, NULL);     // 图像发送时包含三条边线，边线只有横坐标
 
 #endif
 }

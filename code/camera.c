@@ -47,6 +47,10 @@ float Lh = LCDH;
 float Mw = MT9V03X_W;
 float Lw = LCDW;
 
+uint8 LeftBorder_copy[60] = {0};
+uint8 RightBorder_copy[60] = {0};
+uint8 center_copy[60] = {0};
+
 uint8 Half_Road_Wide[60] =                      //直到赛道半宽
 { 2,3,3,4,4,5,5,6,6,7,
   7,8,8,9,9,10,10,11,11,12,
@@ -1691,11 +1695,12 @@ void image_process(void)
 
     Scan_Element();
     Element_Handle();
-    if(ImageFlag.image_element_rings_flag){
-//        buzzer_on();
-    }
-    else
-//        buzzer_off();
+//    if(ImageFlag.image_element_rings_flag){
+////        buzzer_on();
+//    }
+//    else
+////        buzzer_off();
+    ips200_displayimage032_zoom();
     center_line_error = weighted_error_exp(error_center, 40);
 }
 
@@ -1725,9 +1730,15 @@ float weighted_error_exp(int8 *error_center, uint8 cnt) {
 //显示图像   改成你自己的就行 等后期足够自信了，显示关掉，显示屏挺占资源的
 void ips200_displayimage032_zoom(void)
 {
+//    ips200_show_binary_image(0, 0, image_copy[0], LCDW, LCDH, LCDW, LCDH);
+    ips200_show_gray_image(0, 0, image_copy[0], LCDW, LCDH, LCDW, LCDH, 0);
     for (uint16 i = 59; i > ImageStatus.OFFLine; i--)
     {
+        LeftBorder_copy[i] = (uint8)ImageDeal[i].LeftBorder;
+        RightBorder_copy[i] = (uint8)ImageDeal[i].RightBorder;
+        center_copy[i] = (uint8)ImageDeal[i].Center;
         ips200_draw_point((uint16)ImageDeal[i].RightBorder, i, RGB565_RED);//显示起点 显示中线
+
         ips200_draw_point((uint16)ImageDeal[i].Center, i, RGB565_BLUE);//显示起点 显示左边线
         ips200_draw_point((uint16)ImageDeal[i].LeftBorder, i, RGB565_RED);//显示起点 显示右边线
     }
