@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -42,18 +42,18 @@ OBJS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std/%.src: ../libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std/%.c libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std/subdir.mk
-	@echo 'Building file: $<'
-	@echo 'Invoking: TASKING C/C++ Compiler'
-	cctc -cs --dep-file="$(basename $@).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/4.智能车/twocars/Ganjiang_3/Ganjiang_2/Debug/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<" && \
+	@echo '正在构建文件： $<'
+	@echo '正在调用： TASKING C/C++ Compiler'
+	cctc -cs --dep-file="$(basename $@).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<" && \
 	if [ -f "$(basename $@).d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/libraries\/infineon_libraries\/iLLD\/TC26B\/Tricore\/Gtm\/Std\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "$(basename $@).d" > "$(basename $@).d_sed" && cp "$(basename $@).d_sed" "$(basename $@).d" && rm -f "$(basename $@).d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
-	@echo 'Finished building: $<'
+	@echo '已结束构建： $<'
 	@echo ' '
 
 libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std/%.o: ./libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std/%.src libraries/infineon_libraries/iLLD/TC26B/Tricore/Gtm/Std/subdir.mk
-	@echo 'Building file: $<'
-	@echo 'Invoking: TASKING Assembler'
+	@echo '正在构建文件： $<'
+	@echo '正在调用： TASKING Assembler'
 	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
-	@echo 'Finished building: $<'
+	@echo '已结束构建： $<'
 	@echo ' '
 
 
