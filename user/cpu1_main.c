@@ -43,11 +43,16 @@
 // 本例程是开源库空工程 可用作移植或者测试各类内外设
 // 本例程是开源库空工程 可用作移植或者测试各类内外设
 
-uint8 image_dealwith[MT9V03X_H][MT9V03X_W];
-
-uint8_t up_and_down[2][MT9V03X_W];//上下边线0shang1xia
-uint8_t Roadwide[MT9V03X_H];//赛宽
-
+//uint8 image_dealwith[MT9V03X_H][MT9V03X_W];
+//
+//uint8 original_image[image_h][image_w];
+//uint8 bin_image[image_h][image_w];//图像数组
+//
+//uint8 l_border[image_h];//左线数组
+//uint8 r_border[image_h];//右线数组
+//uint8_t up_and_down[2][MT9V03X_W];//上下边线0shang1xia
+//uint8_t Roadwide[MT9V03X_H];//赛宽
+//uint8 center_line[image_h];//中线数组
 
 float err_road = 0 ;
 
@@ -67,7 +72,6 @@ void core1_main(void)
         // 此处编写需要循环执行的代码
 //        Binarization_Algorithm();
 
-        image_process();
 //        ips200_show_int(0, 100, Speed_init_L, 5);
 //        ips200_show_int(0, 120, Speed_init_R, 5);
 //        ips200_show_int(0, 140, err_road, 4);

@@ -61,11 +61,24 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 //    Speed_Right_Real = (float)encoder_get_count(TIM6_ENCODER)/122;
     //不换算成m/s
     Encoder_Read();
-    Control_car();
+//    Control_car();
 //    PID_select();
     PID_output();
-    get_gyro();
-
+//    get_gyro();
+    Gyroscope_GetData();
+    Get_Gyroscope_Pitch(); //俯仰角实时判断
+//    if(Island_State!=0)//进环岛就积分
+//    {
+//        Get_Gyroscope_Angle();
+//         if(Island_State==9)//进9状态必须清除积分
+//         {
+//             Clear_Gyroscope_Angle();
+//         }
+//    }
+//    else//其他情况不积分
+//    {
+        Clear_Gyroscope_Angle();
+//    }
 //    Motor_Left(1000);
 //    Motor_Right(1000);
     Send_information_VOFA();

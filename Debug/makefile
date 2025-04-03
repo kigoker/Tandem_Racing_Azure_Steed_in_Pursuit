@@ -1,5 +1,5 @@
 ################################################################################
-# 自动生成的文件。不要编辑！
+# Automatically-generated file. Do not edit!
 ################################################################################
 
 -include ../makefile.init
@@ -84,27 +84,27 @@ SECONDARY_SIZE += \
 E07_09_wifi_spi_mt9v03x_demo.siz \
 
 
-# 所有目标
+# All Target
 all: main-build
 
-# 主构建目标
+# Main-build Target
 main-build: E07_09_wifi_spi_mt9v03x_demo.elf secondary-outputs
 
-# 工具调用
+# Tool invocations
 E07_09_wifi_spi_mt9v03x_demo.elf: $(OBJS) makefile $(OPTIONAL_TOOL_DEPS)
-	@echo '正在构建目标： $@'
-	@echo '正在调用： TASKING Linker'
-	cctc --lsl-file="../Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy "D:\ADS_DESKWorks\Leading_Car\Tandem_Racing_Azure_Steed_in_Pursuit\libraries\zf_device\zf_device_config.a" -Wl--map-file="E07_09_wifi_spi_mt9v03x_demo.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lcs_fpu -lfp_fpu -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc26xb -o"E07_09_wifi_spi_mt9v03x_demo.elf" -Wl-o"E07_09_wifi_spi_mt9v03x_demo.hex:IHEX" $(OBJS)
-	@echo '已结束构建目标： $@'
+	@echo 'Building target: $@'
+	@echo 'Invoking: TASKING Linker'
+	cctc --lsl-file="../Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy "D:\4.智能车\twocars\Ganjiang_3\Ganjiang_2\libraries\zf_device\zf_device_config.a" -Wl--map-file="E07_09_wifi_spi_mt9v03x_demo.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lcs_fpu -lfp_fpu -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc26xb -o"E07_09_wifi_spi_mt9v03x_demo.elf" -Wl-o"E07_09_wifi_spi_mt9v03x_demo.hex:IHEX" $(OBJS)
+	@echo 'Finished building target: $@'
 	@echo ' '
 
 E07_09_wifi_spi_mt9v03x_demo.siz: E07_09_wifi_spi_mt9v03x_demo.elf makefile $(OPTIONAL_TOOL_DEPS)
-	@echo '正在调用： Print Size'
+	@echo 'Invoking: Print Size'
 	elfsize  "E07_09_wifi_spi_mt9v03x_demo.elf"
-	@echo '已结束构建： $@'
+	@echo 'Finished building: $@'
 	@echo ' '
 
-# 其他目标
+# Other Targets
 clean:
 	find . ! -name "*.mk" ! -name "makefile" ! -name "." -type f -delete 
 	-@echo ' '

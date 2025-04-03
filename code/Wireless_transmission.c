@@ -9,11 +9,7 @@
 void Send_information_VOFA(void)
 {
 //    printf("%d,%d\n",speed1,speed2);
-    float Speed_L = (float)speed1/122 ;
-    float Speed_R = (float)speed2/122 ;
-    float Real_R = (float)Increase1/770 ;
-    float Real_L = (float)Increase2/770 ;
-    printf("%f,%f,%f,%f\n",Speed_L,Speed_R,Real_L,Real_R);
+//    printf("%d,%d,%d,%d,%f,%f,%d,%f,%f\n",speed1*5,speed2*5,Increase1,Increase2,erspeed,divertion,imu660ra_gyro_x,curvature, steer1);
 //    printf("%d,%d,%d\n",imu660ra_gyro_x,imu660ra_gyro_y,imu660ra_gyro_z);
 //    printf("Type: %d, Curvature: %f,%d,%d,%d,%d,%f,%f\n", current_road_type,curve.curvature,speed1,speed2,Increase1,Increase2,steer,divertion);
 //    printf("Round State: %d\n", round_state);
