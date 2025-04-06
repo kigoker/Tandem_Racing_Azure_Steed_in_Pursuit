@@ -21,7 +21,7 @@ extern int *Set_Right;
 #define SPEED_MIN  -10000  //电机速度限幅，负
 
 //WIFI_SPI 参数设置
-#define WIFI_SPI_OPEN 1  //0关闭WIFI_SPI 1开启
+#define WIFI_SPI_OPEN 0  //0关闭WIFI_SPI 1开启
 #define INCLUDE_BOUNDARY_TYPE 1 //摄像头图像传输模式 0为不发送边界  1为发送边界
 
 extern uint8 image_copy[MT9V03X_H][MT9V03X_W];

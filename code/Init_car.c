@@ -50,7 +50,8 @@ void GANJIANG_Init(void)
    Encoder_Init();
    //屏幕初始化
    ips200_init(IPS200_TYPE_SPI);
-
+   //按键初始化
+   mykey_init();
    //ADC_init 初始化A11引脚
    adc_init(ADC0_CH11_A11, ADC_12BIT);
 
@@ -66,19 +67,9 @@ void GANJIANG_Init(void)
 
 void GANJIANG_Flyer(void)
 {
-    //Motor_Left(Speed_Setleft);
-    //Motor_Right(Speed_SetRight);
-//    PID_Init(&sptr1);
-//    PID_Init(&sptr2);
-//    //PID初始化
-//    //增量式PID
-//    imu_PID_Init(&imu);
-//    Control_car();
-//    Motor_Left(2000);
-//    Motor_Right(2000);
 
-//    ips200_displayimage03x(mt9v03x_image[0], MT9V03X_W, MT9V03X_H);
-    //Wireless_uart_readAndsent();
+
+    UI_init();
 }
 
 

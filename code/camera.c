@@ -1731,15 +1731,15 @@ float weighted_error_exp(int8 *error_center, uint8 cnt) {
 void ips200_displayimage032_zoom(void)
 {
 //    ips200_show_binary_image(0, 0, image_copy[0], LCDW, LCDH, LCDW, LCDH);
-    ips200_show_gray_image(0, 0, image_copy[0], LCDW, LCDH, LCDW, LCDH, 0);
+//    ips200_show_gray_image(0, 0, image_copy[0], LCDW, LCDH, LCDW, LCDH, 0);
     for (uint16 i = 59; i > ImageStatus.OFFLine; i--)
     {
         LeftBorder_copy[i] = (uint8)ImageDeal[i].LeftBorder;
         RightBorder_copy[i] = (uint8)ImageDeal[i].RightBorder;
         center_copy[i] = (uint8)ImageDeal[i].Center;
-        ips200_draw_point((uint16)ImageDeal[i].RightBorder, i, RGB565_RED);//显示起点 显示中线
-
-        ips200_draw_point((uint16)ImageDeal[i].Center, i, RGB565_BLUE);//显示起点 显示左边线
-        ips200_draw_point((uint16)ImageDeal[i].LeftBorder, i, RGB565_RED);//显示起点 显示右边线
+//        ips200_draw_point((uint16)ImageDeal[i].RightBorder, i, RGB565_RED);//显示起点 显示中线
+//
+//        ips200_draw_point((uint16)ImageDeal[i].Center, i, RGB565_BLUE);//显示起点 显示左边线
+//        ips200_draw_point((uint16)ImageDeal[i].LeftBorder, i, RGB565_RED);//显示起点 显示右边线
     }
 }

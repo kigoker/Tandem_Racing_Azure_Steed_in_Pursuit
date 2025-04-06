@@ -334,5 +334,9 @@ code/camera.o :	d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursui
 d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/Control.h :
 code/camera.o :	d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/imu.h
 d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/imu.h :
+code/camera.o :	d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/KEY.h
+d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/KEY.h :
+code/camera.o :	d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/UI.h
+d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/UI.h :
 code/camera.o :	d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/camera.h
 d:/ADS_DESKWorks/Leading_Car/Tandem_Racing_Azure_Steed_in_Pursuit/code/camera.h :

@@ -120,6 +120,8 @@
 #include "image_dealwith.h"
 #include "Control.h"
 #include "imu.h"
+#include "KEY.h"
+#include "UI.h"
 #include "camera.h"
 
 //=====================================================”√ªß≤„======================================================

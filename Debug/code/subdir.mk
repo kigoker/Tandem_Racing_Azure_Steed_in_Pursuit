@@ -7,8 +7,10 @@ C_SRCS += \
 ../code/Control.c \
 ../code/Encoder.c \
 ../code/Init_car.c \
+../code/KEY.c \
 ../code/Motor.c \
 ../code/PID.c \
+../code/UI.c \
 ../code/Wireless_transmission.c \
 ../code/camera.c \
 ../code/image_dealwith.c \
@@ -18,8 +20,10 @@ COMPILED_SRCS += \
 ./code/Control.src \
 ./code/Encoder.src \
 ./code/Init_car.src \
+./code/KEY.src \
 ./code/Motor.src \
 ./code/PID.src \
+./code/UI.src \
 ./code/Wireless_transmission.src \
 ./code/camera.src \
 ./code/image_dealwith.src \
@@ -29,8 +33,10 @@ C_DEPS += \
 ./code/Control.d \
 ./code/Encoder.d \
 ./code/Init_car.d \
+./code/KEY.d \
 ./code/Motor.d \
 ./code/PID.d \
+./code/UI.d \
 ./code/Wireless_transmission.d \
 ./code/camera.d \
 ./code/image_dealwith.d \
@@ -40,8 +46,10 @@ OBJS += \
 ./code/Control.o \
 ./code/Encoder.o \
 ./code/Init_car.o \
+./code/KEY.o \
 ./code/Motor.o \
 ./code/PID.o \
+./code/UI.o \
 ./code/Wireless_transmission.o \
 ./code/camera.o \
 ./code/image_dealwith.o \
@@ -68,7 +76,7 @@ code/%.o: ./code/%.src code/subdir.mk
 clean: clean-code
 
 clean-code:
-	-$(RM) ./code/Control.d ./code/Control.o ./code/Control.src ./code/Encoder.d ./code/Encoder.o ./code/Encoder.src ./code/Init_car.d ./code/Init_car.o ./code/Init_car.src ./code/Motor.d ./code/Motor.o ./code/Motor.src ./code/PID.d ./code/PID.o ./code/PID.src ./code/Wireless_transmission.d ./code/Wireless_transmission.o ./code/Wireless_transmission.src ./code/camera.d ./code/camera.o ./code/camera.src ./code/image_dealwith.d ./code/image_dealwith.o ./code/image_dealwith.src ./code/imu.d ./code/imu.o ./code/imu.src
+	-$(RM) ./code/Control.d ./code/Control.o ./code/Control.src ./code/Encoder.d ./code/Encoder.o ./code/Encoder.src ./code/Init_car.d ./code/Init_car.o ./code/Init_car.src ./code/KEY.d ./code/KEY.o ./code/KEY.src ./code/Motor.d ./code/Motor.o ./code/Motor.src ./code/PID.d ./code/PID.o ./code/PID.src ./code/UI.d ./code/UI.o ./code/UI.src ./code/Wireless_transmission.d ./code/Wireless_transmission.o ./code/Wireless_transmission.src ./code/camera.d ./code/camera.o ./code/camera.src ./code/image_dealwith.d ./code/image_dealwith.o ./code/image_dealwith.src ./code/imu.d ./code/imu.o ./code/imu.src
 
 .PHONY: clean-code
 
